@@ -88,6 +88,18 @@
                                         @enderror
                                     </div>
                                 </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label class="control-label">Solde Maladie: <span
+                                                class="obligatoire">*</span></label>
+                                        <input type="number" placeholder="Entrer solde maladie" class="form-control"
+                                            name="solde_maladie" value="{{ $user->solde_maladie }}">
+
+                                        @error('solde_maladie')
+                                            <div class="alert alert-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="row" style="margin-top:15px">

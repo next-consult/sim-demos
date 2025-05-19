@@ -49,7 +49,7 @@ class UserController extends Controller
             "email" => $request->email,
             "password" => Hash::make($request->password),
         ]);
-		
+
 
         return response()->json(["success_id" => $user->id]);
     }
@@ -78,6 +78,7 @@ class UserController extends Controller
                 'email' => 'required|email|unique:users,email,' . $id,
                 'password' => 'nullable|min:8|confirmed',
                 'solde_conge' => 'required|min:0',
+                'solde_maladie' => 'required|min:0',
             ]
         );
         if ($validator->fails()) {
@@ -91,6 +92,7 @@ class UserController extends Controller
             "email" => $request->email,
             "role_id" => $request->roles,
             "solde_conge" => $request->solde_conge,
+            "solde_maladie" => $request->solde_maladie,
         ];
 
         // Conditionally add password if it is present
