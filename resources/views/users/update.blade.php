@@ -186,6 +186,7 @@
         var password = $("input[name='password']").val();
         var roles = $("#roles").val();
         var solde = $("input[name='solde']").val(); // Get solde_conge value
+        var solde_maladie = $("input[name='solde_maladie']").val(); // Get solde_maladie value
         var password_confirmation = $("input[name='password_confirmation']").val();
         var form = new FormData();
 
@@ -195,6 +196,7 @@
         form.append('telephone', telephone);
         form.append('password', password);
         form.append('solde_conge', solde); // Append solde_conge
+        form.append('solde_maladie', solde_maladie); // Append solde_maladie
         form.append('password_confirmation', password_confirmation);
         form.append('_token', '{{ csrf_token() }}');
         $.ajaxSetup({
@@ -233,6 +235,9 @@
                     }
                     if (result.error.solde_conge) {
                         error_message(result.error.solde_conge[0], "input[name='solde']");
+                    }
+                    if (result.error.solde_maladie) {
+                        error_message(result.error.solde_maladie[0], "input[name='solde_maladie']");
                     }
                 } else if (result.success_id) {
                     Swal.fire({
